@@ -147,7 +147,7 @@ runs:
       working-directory: ${{ inputs.path }}
       shell: bash
       run: |
-        npm test -- --retries 2
+        npm test -- --bail
 
     - if: always()
       name: Fix paths
@@ -157,7 +157,7 @@ runs:
       # run: sed -i "s|$GITHUB_WORKSPACE/${{ inputs.path }}/test||g" test-results.xml
       run: |
         sed -i "s|${{ github.workspace }}/${{ inputs.path }}/test||g" test-report/test-results.xml
-        cat $REPORT_DIR/*
+        curl http://localhost:3567/hello
 
     - if: always() && inputs.app-server-logs != ''
       name: Copy app server logs

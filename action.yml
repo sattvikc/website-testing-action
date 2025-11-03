@@ -71,7 +71,7 @@ runs:
           echo "NODE_PORT=8081" | tee -a "$GITHUB_ENV"
         fi
 
-        REPORT_DIR=${{ github.workspace }}/${{ inputs.path }}/test-report
+        REPORT_DIR=${{ github.workspace }}/test-report
         APP_SERVER_LOG_DIR=${{ github.workspace }}/${{ inputs.path }}/test-report/logs/app-server
         TEST_SERVER_LOG_DIR=${{ github.workspace }}/${{ inputs.path }}/test-report/logs/test-server
 
